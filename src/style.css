@@ -1,0 +1,37 @@
+:root {
+  --font-family: "Manrope", sans-serif;
+  --main-black: #101828;
+  --main-grey: #8d929a;
+  --main-inputs: #f7f7f7;
+  --main-white: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+input,
+button {
+  font: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+body {
+  height: 100%;
+  background-color: var(--main-white);
+  font-family: var(--font-family);
+  line-height: 1.25;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 500;
+  font-size: 16px;
+  font-style: normal;
+  color: var(--main-white);
+}

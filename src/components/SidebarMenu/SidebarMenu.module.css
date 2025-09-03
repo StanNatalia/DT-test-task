@@ -1,0 +1,116 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sidebar {
+  border-radius: 15px 0 0 15px;
+  position: fixed;
+  top: 0;
+  right: -400px;
+  left: auto;
+  width: 400px;
+  height: 100%;
+  background: var(--main-white);
+  color: var(--main-grey);
+  transition: right 0.3s ease;
+  padding: 20px;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  border: none;
+  background: transparent;
+  color: var(--main-grey);
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+.menu.root {
+  padding-top: 40px;
+}
+
+.menuItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  padding: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.menuItem:hover,
+.menuItem:focus {
+  color: var(--main-black);
+}
+
+.arrow {
+  font-size: 12px;
+}
+
+.subMenu {
+  list-style: none;
+  padding-left: 40px;
+  margin: 2px 0;
+  animation: fadeIn 0.3s ease;
+}
+
+.subMenu[data-depth="1"] {
+  padding-left: 20px;
+}
+
+.subMenu[data-depth="2"] {
+  padding-left: 40px;
+}
+
+.subMenu[data-depth="3"] {
+  padding-left: 60px;
+}
+
+.subMenuItem {
+  padding: 2px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.subMenuItem:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
