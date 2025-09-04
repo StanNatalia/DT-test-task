@@ -35,3 +35,5 @@ Open http://localhost:6006
 ## Description
 
 This project presents the Input, Toast, SidebarMenu components.
+![Input](https://github.com/StanNatalia/DT-test-task/blob/master/1Снимок%20экрана%202025-09-04%20110606.png)
+
