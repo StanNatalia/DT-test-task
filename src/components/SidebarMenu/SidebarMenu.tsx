@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import styles from "./SidebarMenu.module.css";
+import { motion, AnimatePresence } from "framer-motion";
 
 export interface MenuItem {
   label: string;
@@ -60,11 +61,19 @@ const SidebarMenu: React.FC<SidebarMenuProps> = ({
               )}
             </div>
 
-            {item.children && isExpanded && (
-              <div className={styles.subMenuWrapper}>
-                {renderMenu(item.children, path, false, depth + 1)}
-              </div>
-            )}
+            <AnimatePresence initial={false}>
+              {item.children && isExpanded && (
+                <motion.div
+                  className={styles.subMenuWrapper}
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                >
+                  {renderMenu(item.children, path, false, depth + 1)}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </li>
         );
       })}

@@ -6,25 +6,31 @@ import { IoMdClose } from "react-icons/io";
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   clearable?: boolean;
+  clearableOffset?: number;
 }
 
-const Input: React.FC<InputProps & { clearableOffset?: number }> = ({
+const Input: React.FC<InputProps> = ({
   type = "text",
   clearable = false,
   clearableOffset = 0,
+  value: controlledValue,
+  onChange,
   ...props
 }) => {
-  const [value, setValue] = useState("");
+  const [uncontrolledValue, setUncontrolledValue] = useState("");
+  const isControlled = controlledValue !== undefined;
+  const value = isControlled ? controlledValue : uncontrolledValue;
+
   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-    props.onChange?.(e);
+    if (!isControlled) setUncontrolledValue(e.target.value);
+    onChange?.(e);
   };
 
   const handleClear = () => {
-    setValue("");
-    props.onChange?.({
+    if (!isControlled) setUncontrolledValue("");
+    onChange?.({
       target: { value: "" },
     } as React.ChangeEvent<HTMLInputElement>);
   };

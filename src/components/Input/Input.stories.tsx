@@ -9,6 +9,21 @@ const meta: Meta<typeof Input> = {
   title: "Input/Input",
   component: Input,
   tags: ["autodocs"],
+  argTypes: {
+    type: {
+      control: { type: "select" },
+      options: ["text", "password", "number"],
+    },
+    placeholder: {
+      control: "text",
+    },
+    clearable: {
+      control: "boolean",
+    },
+    clearableOffset: {
+      control: { type: "number", min: 0, max: 50, step: 1 },
+    },
+  },
 };
 
 export default meta;
@@ -186,6 +201,7 @@ export const WithValidation: Story = {
               color: "var(--main-white)",
               padding: "10px 16px",
               borderRadius: "20px",
+              cursor: "pointer",
             }}
           >
             Submit
@@ -193,5 +209,14 @@ export const WithValidation: Story = {
         </form>
       </div>
     );
+  },
+};
+
+export const Interactive: Story = {
+  args: {
+    placeholder: "Enter something...",
+    type: "password",
+    clearable: true,
+    clearableOffset: 35,
   },
 };

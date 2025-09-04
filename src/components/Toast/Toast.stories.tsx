@@ -6,6 +6,15 @@ const meta: Meta<typeof Toast> = {
   title: "Feedback/Toast",
   component: Toast,
   tags: ["autodocs"],
+  argTypes: {
+    message: { control: "text" },
+    type: {
+      control: { type: "select" },
+      options: ["success", "error", "info", "warning"],
+    },
+    duration: { control: { type: "number", min: 0, step: 500 } },
+    closable: { control: "boolean" },
+  },
 };
 
 export default meta;
@@ -115,6 +124,15 @@ export const WarningWithCloseBtn: Story = {
     message: "Be careful with this action!",
     type: "warning",
     duration: 7000,
+    closable: true,
+  },
+};
+
+export const Interactive: Story = {
+  args: {
+    message: "This is a toast message",
+    type: "info",
+    duration: 3000,
     closable: true,
   },
 };
