@@ -90,7 +90,7 @@ This project presents the Input, Toast, SidebarMenu components.
 ![Interactive Toast](https://github.com/StanNatalia/DT-test-task/blob/master/17%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-09-04%20114919.png)
 
 
-# Toast
+# SidebarMenu
 
 ## Close SidebarMenu:
 ![Close SidebarMenu](https://github.com/StanNatalia/DT-test-task/blob/master/18%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-09-04%20114955.png)
